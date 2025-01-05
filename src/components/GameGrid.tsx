@@ -15,7 +15,7 @@ function GameGrid() {
         xl: 5,
       }} spacing={10} padding="10px">
         {games.map(game =>
-          <GameCard name={game.name} image={game.background_image} />
+          <GameCard game={game} />
         )}
       </SimpleGrid>
     </>
