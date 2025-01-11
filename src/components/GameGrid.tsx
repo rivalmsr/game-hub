@@ -19,8 +19,8 @@ function GameGrid({ gameQuery }: Props) {
         sm: 1,
         md: 2,
         lg: 3,
-        xl: 5,
-      }} spacing={3} padding="10px">
+        xl: 4,
+      }} spacing={6} padding="10px">
 
         {loading && [...Array(10).keys()].map(item =>
           <GameCardContainer key={item}>
