@@ -10,9 +10,9 @@ interface Props {
 }
 
 function GameGrid({ gameQuery }: Props) {
-  const { data, error, loading } = useGames(gameQuery);
+  const { data, error, isLoading } = useGames(gameQuery);
 
-  if (error) return <Text>{error}</Text>;
+  if (error) return <Text>{error.message}</Text>;
 
   return (
     <SimpleGrid columns={{
@@ -22,12 +22,12 @@ function GameGrid({ gameQuery }: Props) {
       xl: 4,
     }} spacing={6} padding="10px">
 
-      {loading && [...Array(10).keys()].map(item =>
+      {isLoading && [...Array(10).keys()].map(item =>
         <GameCardContainer key={item}>
           <GameCardSkeleton key={item} />
         </GameCardContainer>)}
 
-      {data.map(game =>
+      {data?.results.map(game =>
         <GameCardContainer key={game.id}>
           <GameCard game={game} />
         </GameCardContainer>
