@@ -9,16 +9,16 @@ interface Props {
 }
 
 function GenreList({ selectedGenre, onSelectGenre }: Props) {
-  const { data, loading, error } = useGenres();
+  const { data, isLoading, error } = useGenres();
 
   if (error) return null;
 
-  if (loading) return <GenreListSkeleton />
+  if (isLoading) return <GenreListSkeleton />
 
   return (
     <>
       <Heading fontSize="2xl" marginBottom={2}>Genres</Heading>
-      <List>{data.map(genre =>
+      <List>{data?.results.map(genre =>
         <ListItem key={genre.id} paddingY={1}>
           <HStack>
             <Image boxSize="32px" objectFit="cover" src={getCroppedImageUrl(genre.image_background)} borderRadius={8} />
