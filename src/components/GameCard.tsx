@@ -1,4 +1,5 @@
 import { Card, CardBody, Heading, HStack, Image } from "@chakra-ui/react";
+import { Link, NavLink } from "react-router-dom";
 import { Game } from "../hooks/useGames";
 import { getCroppedImageUrl } from "../services/image-url";
 import CriticScore from "./CriticScore";
@@ -18,10 +19,14 @@ function GameCard({ game }: Props) {
           <PlatformIconList platforms={game.parent_platforms.map(p => p.platform)} />
           <CriticScore score={game.metacritic} />
         </HStack>
-        <Heading fontSize="2xl" marginY={2}>{game.name}</Heading>
+        <Heading fontSize="2xl" marginY={2}>
+          <Link to={`/games/${game.slug}`} >
+            {game.name}
+          </Link>
+        </Heading>
         <Emoji rating={game.rating_top} />
       </CardBody>
-    </Card>
+    </Card >
   )
 }
 
