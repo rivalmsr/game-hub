@@ -5,7 +5,7 @@ import APIClient from "../services/api-http";
 import { FetchResponse } from "../services/api-http";
 import { GameQuery } from "../store";
 
-const apiClient = new APIClient<Game>('/games');
+const apiClient = new APIClient<Game>('games');
 
 const useGames = (gameQuery: GameQuery) => {
 
