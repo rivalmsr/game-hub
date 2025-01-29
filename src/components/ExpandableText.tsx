@@ -3,7 +3,7 @@ import { useState } from "react";
 
 interface Props {
   children: string;
-  maxLenght: number;
+  maxLenght?: number;
 }
 
 function ExpandableText({ children, maxLenght = 300 }: Props) {
