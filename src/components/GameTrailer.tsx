@@ -1,7 +1,7 @@
 import useTailers from "../hooks/useTrailers";
 
 interface Props {
-  gameId: string
+  gameId: number;
 }
 
 function GameTraier({ gameId }: Props) {
